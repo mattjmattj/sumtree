@@ -1,0 +1,31 @@
+{
+    "name": "mattjmattj/sumtree",
+    "description": "A PHP implementation of an unsorted binary sum tree",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Jouan",
+            "email": "matthias.jouan@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    
+    "autoload": {
+        "psr-4": {
+            "Sumtree\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sumtree\\Test\\": "test/"
+            "Sumtree\\Example\\": "example/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    }
+}
