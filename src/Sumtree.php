@@ -27,7 +27,7 @@ class Sumtree
     {
         $this->pointer = 0;
 
-        $this->size = $size;        
+        $this->size = $size;
         $this->treeSize = 2 * $size - 1;
 
         $this->tree = new \SplFixedArray($this->treeSize);
@@ -46,7 +46,7 @@ class Sumtree
         // store the actual data
         $this->data[$this->pointer] = $element;
 
-        // update the values in the tree : 
+        // update the values in the tree :
         // we set the leaf value and propagate the difference
         $tree_pointer = $this->pointer + $this->size -1;
         $diff = $value - $this->tree[$tree_pointer];
@@ -97,7 +97,7 @@ class Sumtree
     public function max(): float
     {
         $max = PHP_FLOAT_MIN;
-        foreach($this->tree as $k => $value) {
+        foreach ($this->tree as $k => $value) {
             if ($k<$this->size -1) {
                 continue;
             }

@@ -6,9 +6,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 /*
  * Assume we must draw a vowel according to this probability distribution:
- * 
+ *
  *  A=0.3, E=0.3, U=0.1, I=0.15, O=0.1, Y=0.05
- * 
+ *
  */
 
 $sumtree = new Sumtree(6);
