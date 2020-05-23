@@ -47,6 +47,24 @@ final class SumtreeTest extends TestCase
         $this->assertEquals(8, $sumtree->max());
     }
 
+    public function testCountIsAccurate(): void
+    {
+        $sumtree = new Sumtree(4);
+        $sumtree->add('a', 5);
+        $sumtree->add('b', 2);
+
+        $this->assertEquals(2, $sumtree->count());
+
+        $sumtree->add('c', 8);
+        $sumtree->add('d', 4);
+
+        $this->assertEquals(4, $sumtree->count());
+
+        $sumtree->add('e', 10);
+
+        $this->assertEquals(4, $sumtree->count());
+    }
+
     public function testIsRolling(): void
     {
         $sumtree = new Sumtree(4);

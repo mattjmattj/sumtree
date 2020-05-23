@@ -2,7 +2,7 @@
 
 namespace Sumtree;
 
-class Sumtree
+class Sumtree implements \Countable
 {
     private int $size;
     private int $treeSize;
@@ -23,9 +23,13 @@ class Sumtree
      */
     private int $pointer;
 
+    private int $count;
+
     public function __construct(int $size)
     {
         $this->pointer = 0;
+
+        $this->count = 0;
 
         $this->size = $size;
         $this->treeSize = 2 * $size - 1;
@@ -43,6 +47,8 @@ class Sumtree
 
     public function add(/*mixed*/ $element, float $value): void
     {
+        $this->count = min($this->size, $this->count + 1);
+
         // store the actual data
         $this->data[$this->pointer] = $element;
 
@@ -106,5 +112,10 @@ class Sumtree
             }
         }
         return $max;
+    }
+
+    public function count(): int
+    {
+        return $this->count;
     }
 }
