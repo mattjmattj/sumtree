@@ -70,6 +70,15 @@ class Sumtree implements \Countable
 
     public function getElement(float $value)/*: mixed*/
     {
+        list(, $element) = $this->getElementAndPosition($value);
+        return $element;
+    }
+
+    /**
+     * @return array - [int $position, mixed $element]
+     */
+    public function getElementAndPosition(float $value): array
+    {
         // we start from the root
         $parent = 0;
 
@@ -81,7 +90,11 @@ class Sumtree implements \Countable
             // out of tree : the search is over
             // and the node is $parent
             if ($left >= $this->treeSize) {
-                return $this->data[$parent - $this->size + 1];
+                $position = $parent - $this->size + 1;
+                return [
+                    $position,
+                    $this->data[$position]
+                ];
             }
 
             // search

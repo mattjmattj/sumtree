@@ -23,6 +23,9 @@ final class SumtreeTest extends TestCase
         $this->assertEquals('c', $sumtree->getElement(10));
         $this->assertEquals('d', $sumtree->getElement(18));
         $this->assertEquals('d', $sumtree->getElement(19));
+
+        $this->assertEquals([2,'c'], $sumtree->getElementAndPosition(10));
+        $this->assertEquals([0,'a'], $sumtree->getElementAndPosition(3));
     }
 
     public function testSumIsAccurate(): void
