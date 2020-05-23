@@ -26,6 +26,9 @@ final class SumtreeTest extends TestCase
 
         $this->assertEquals([2,'c'], $sumtree->getElementAndPosition(10));
         $this->assertEquals([0,'a'], $sumtree->getElementAndPosition(3));
+
+        $this->assertEquals([2,8,'c'], $sumtree->get(10));
+        $this->assertEquals([0,5,'a'], $sumtree->get(3));
     }
 
     public function testUpdateValue(): void

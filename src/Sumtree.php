@@ -62,7 +62,7 @@ class Sumtree implements \Countable
     public function updateValue(int $position, float $value): void
     {
         // we set the leaf value and propagate the difference
-        $tree_pointer = $position + $this->size -1;
+        $tree_pointer = $position + $this->size - 1;
         $diff = $value - $this->tree[$tree_pointer];
 
         $this->tree[$tree_pointer] = $value;
@@ -71,6 +71,21 @@ class Sumtree implements \Countable
             $tree_pointer = intdiv($tree_pointer - 1, 2);
             $this->tree[$tree_pointer] += $diff;
         }
+    }
+
+    /**
+     * @return array - [int position, float value, mixed element]
+     */
+    public function get(float $value): array
+    {
+        list($position, $element) = $this->getElementAndPosition($value);
+        $tree_position = $position + $this->size - 1;
+        $value = $this->tree[$tree_position];
+        return [
+            $position,
+            $value,
+            $element
+        ];
     }
 
     public function getElement(float $value)/*: mixed*/
