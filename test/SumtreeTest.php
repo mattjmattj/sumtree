@@ -57,6 +57,7 @@ final class SumtreeTest extends TestCase
         $sumtree->add('b', 2);
 
         $this->assertEquals(2, $sumtree->count());
+        $this->assertEquals(2, count($sumtree));
 
         $sumtree->add('c', 8);
         $sumtree->add('d', 4);
@@ -66,6 +67,7 @@ final class SumtreeTest extends TestCase
         $sumtree->add('e', 10);
 
         $this->assertEquals(4, $sumtree->count());
+        $this->assertEquals(4, count($sumtree));
     }
 
     public function testIsRolling(): void
